@@ -1,0 +1,31 @@
+@font-face {
+    font-family: Dosis;
+    src: url(../fonts/dosis/Dosis-Regular.otf)
+}
+@font-face {
+    font-family: DosisExtraLight;
+    src: url(../fonts/dosis/Dosis-ExtraLight.otf)
+}
+
+@font-face {
+    font-family: Finger;
+    src: url(../fonts/finger-paint/FingerPaint-Regular.ttf)
+}
+body {
+    font-family: 'Dosis', serif;
+}
+.login{
+    background-image: url('../itens/back_projetos.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment:scroll;
+    background-position:center center;
+    border-top: 0px;
+}
+.ensino,.pesquisa,.extensao{
+    display:none;
+}
+
+.doris{
+    font-family: 'Dosis', serif;
+}
