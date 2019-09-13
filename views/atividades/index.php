@@ -51,7 +51,7 @@ $user = $_SESSION['user_nome'];
 </div>
 
 <div class="ui pointing menu" style="margin-top: 0px;">
-    <a class="item " href="../../index.php">Home</a>
+    <a class="item " href="../../login/index.php">Home</a>
     <a class="item " href="../aacc">AACCs</a>
     <a class="item active" href="../alunos">Alunos</a>
 </div>

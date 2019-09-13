@@ -1,4 +1,6 @@
 <?php
+
+//esse trecho de código em PHP são para verificar se o user estar logado
 session_start();
 require_once '../../login/init.php';
 require '../../login/check.php';
@@ -9,11 +11,24 @@ function __autoload($class)
     require_once '../../domain/' . $class . '.php';
 }
 
+//essas informações eu pego no momento em que o usuário loga, porque posso precisar
 $codigo = $_SESSION['user_curso'];
 $coord_log = $_SESSION['user_id'];
 $aacc = new Aacc();
+
+//Se o user estiver logado, ele tem acesso a essa página
 ?>
 <!DOCTYPE html>
+<!-- Modulo AACC -->
+<!-- Onde serão inseridas Atividades de:
+-Ensino
+-Pesquisa
+-Extensão
+
+*inserir (ok)
+*(falta editar e excluir)
+-->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -50,35 +65,36 @@ $aacc = new Aacc();
     </div>
 </div>
 
+<!-- ************opções do menu-->
 <div class="ui pointing menu" style="margin-top: 0px;">
 <!--    <a class="item " href="../../index.php">Home</a>-->
     <!--    <a class="item"  href="../atividades">Atividades </a>-->
     <a class="item active" href="../aacc">AACCs</a>
     <a class="item" href="../alunos">Alunos</a>
-
 </div>
 
-
+<!-- ***********Migalha de pão-->
 <div class="ui breadcrumb" style="margin-top: 3%;margin-left: 1%;">
 <!--    <a class="section">Home</a>-->
 <!--    <i class="right angle icon divider"></i>-->
     <div class="active section">AACCs</div>
 </div>
 
-
+<!-- *************Botão adiconar AACC-->
 <div class="ui segment">
     <div style="text-align: center;margin-bottom: 2%;">
         <button class="ui  positive basic button create_btn" type="button" id="addAACC">Adicionar AACC</button>
     </div>
 
+    <!----------------GRENDE TABELA ONDE MOSTRAM TODAS AS MODALIDADES ---------------->
 
-    <!-- Tab links -->
+    <!-- Tab links com as opções ENSINO, PESQUISA e EXTENSÃO -->
     <div class="tab">
         <button class="tablinks active" onclick="openModalidade(event, 'Ensino')" id="padraoAberto">Ensino</button>
         <button class="tablinks" onclick="openModalidade(event, 'Pesquisa')">Pesquisa</button>
         <button class="tablinks" onclick="openModalidade(event, 'Extensão')">Extensão</button>
     </div>
-    <!-- Tab content -->
+    <!-- Tab content ENSINO-->
     <div id="Ensino" class="tabcontent">
         <h3 style="text-align: center;">MODALIDADE: ENSINO</h3>
 
@@ -155,6 +171,7 @@ $aacc = new Aacc();
         </table>
     </div>
 
+    <!-- Tab content PESQUISA-->
     <div id="Pesquisa" class="tabcontent" style="display:none">
         <h3 style="text-align: center;">MODALIDADE: PESQUISA</h3>
         <table id="pesquisatable" class="ui celled table" style="width:100%">
@@ -229,6 +246,7 @@ $aacc = new Aacc();
         </table>
     </div>
 
+    <!-- Tab content EXTENSÃO-->
     <div id="Extensão" class="tabcontent" style="display:none">
         <h3 style="text-align: center;">MODALIDADE: EXTENSÃO</h3>
         <table id="extensaotable" class="ui celled table" style="width:100%">
@@ -379,8 +397,6 @@ $aacc = new Aacc();
 </div>
 </form>
 
-
-<!--</body> -->
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -389,6 +405,8 @@ $aacc = new Aacc();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
 
 <script>
+
+    /*esses scripts são importantes, são referentes à organização e busca nas tebelas*/
     $(document).ready(function () {
         $('#ensinotable').DataTable();
     });
@@ -466,6 +484,8 @@ $aacc = new Aacc();
 </script>
 
 <script type="text/javascript">
+    /*esses scripts fazem parte do SEMANTIC UI e são acrescentados aqui na parte final do arquivo de código
+     porque no início não funcionam, deve ser alguma regra do semantic UI. Esses scripts são para estilizar o select*/
     $(function () {
         $("#addAACC").click(function () {
             $(".addAACC").modal('show');

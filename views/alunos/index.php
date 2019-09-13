@@ -12,8 +12,18 @@ function __autoload($class)
 $codigo = $_SESSION['user_curso'];
 $aluno = new Aluno();
 $curso = new Curso();
-
 ?>
+
+<!-- Modulo ALUNOS -->
+<!-- Onde serão inseridas Atividades de:
+-Ensino
+-Pesquisa
+-Extensão
+
+*inserir (ok)
+*(falta editar e excluir)
+-->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <!--<head> -->
